@@ -1,0 +1,32 @@
+<h1>Budget</h1>
+
+
+<h3>Add new</h3>
+
+<%= render 'checks/form' %>
+
+<h3>This month</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Time</th>
+    <th>Sum</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @checks.each do |check| %>
+    <tr>
+      <td><%= check.id %></td>
+      <td><%= check.time %></td>
+      <td><%= check.sum %></td>
+      <td><%= check.category %></td>
+      <td><%= link_to 'Edit', edit_check_path(check) %></td>
+      <td><%= link_to 'Destroy', check, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+Kokku: <%= Check.sum(:sum) %> 

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Time:</b>
+  <%= @check.time %>
+</p>
+
+<p>
+  <b>Sum:</b>
+  <%= @check.sum %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @check.category %>
+</p>
+
+
+<%= link_to 'Edit', edit_check_path(@check) %> |
+<%= link_to 'Back', checks_path %>

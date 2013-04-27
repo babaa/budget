@@ -1,0 +1,41 @@
+<%= form_for(@check) do |f| %>
+  <% if @check.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@check.errors.count, "error") %> prohibited this check from being saved:</h2>
+
+      <ul>
+      <% @check.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    
+
+    <div class="adding-form row">
+
+      <div class="field span3">
+        <%= f.label :time %>
+        <%= f.date_select :time %>
+      </div>
+
+      <div class="field span1">
+        <%= f.label :sum %>
+        <%= f.text_field :sum %>
+      </div>
+
+      <div class="field span3">
+        <%= f.label :category %>
+        <%= f.text_field :category %>
+      </div>
+  
+      <div class="actions span2">
+        <%= f.submit %>
+      </div>
+
+    </div>
+    
+
+<% end %>
