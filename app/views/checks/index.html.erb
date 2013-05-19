@@ -5,7 +5,15 @@
 
 <%= render 'checks/form' %>
 
-<h3>This month</h3>
+
+<h3>Report</h3>
+
+<%= form_tag checks_path, method: 'GET' do %>
+  <%= select_month(Date.today) %>
+  <%= select_year(Date.today, :start_year => @available_years[:start_year], :end_year => @available_years[:end_year]) %>
+    <%= submit_tag("Go") %>
+
+  <% end %>
 
 <table class="table table-striped">
   <tr>
@@ -13,20 +21,24 @@
     <th>Time</th>
     <th>Sum</th>
     <th>Category</th>
+    <th>Description</th>
     <th></th>
     <th></th>
   </tr>
+
+
 
   <% @checks.each do |check| %>
     <tr>
       <td><%= check.id %></td>
       <td><%= check.time %></td>
       <td><%= check.sum %></td>
-      <td><%= check.category %></td>
+      <td><%= check.category.name if check.category %></td>
+      <td><%= check.description %></td>
       <td><%= link_to 'Edit', edit_check_path(check) %></td>
-      <td><%= link_to 'Destroy', check, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy', check, method: :delete, data: { confirm: 'Oled kindel?' } %></td>
     </tr>
   <% end %>
 </table>
 
-Kokku: <%= Check.sum(:sum) %> 
+Kokku:  

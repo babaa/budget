@@ -2,9 +2,15 @@ class ChecksController < ApplicationController
   # GET /checks
   # GET /checks.json
   def index
-    @checks = Check.this_month
-    @check = Check.new
+    if params[:date]
+      @checks = Check.filter_by_month_and_year(params[:date][:month], params[:date][:year])
+    else
+      @checks = Check.all
+    end
 
+    @available_years = Check.available_years
+
+    @check = Check.new
 
     respond_to do |format|
       format.html # index.html.erb

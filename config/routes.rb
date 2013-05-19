@@ -1,4 +1,7 @@
 Budget::Application.routes.draw do
+  resources :categories
+
+
   resources :checks
 
 

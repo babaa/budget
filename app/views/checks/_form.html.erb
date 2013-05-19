@@ -26,12 +26,18 @@
         <%= f.text_field :sum %>
       </div>
 
-      <div class="field span3">
+      <div class="field span1">
         <%= f.label :category %>
-        <%= f.text_field :category %>
+        <% categories_array = Category.all.map { |x| [x.name, x.id] }%>
+        <%= f.select :category_id, options_for_select(categories_array) %>
+      </div>
+
+      <div class="field span3">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
       </div>
   
-      <div class="actions span2">
+      <div class="actions span1">
         <%= f.submit %>
       </div>
 
