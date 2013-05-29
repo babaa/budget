@@ -10,9 +10,14 @@ class Check < ActiveRecord::Base
   belongs_to :category
 
   def self.available_years
+
   	oldest = Check.limit(1).order('time asc')
   	newest = Check.limit(1).order('time desc')
-  	{ start_year: oldest.first.time.year, end_year: newest.first.time.year }
+    
+    oldest = (oldest.empty?) ? Date.today.year : oldest.first.time.year
+    newest = (newest.empty?) ? Date.today.year : newest.first.time.year
+
+  	{ start_year: oldest, end_year: newest }
   end
 end
 

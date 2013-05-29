@@ -27,7 +27,7 @@
       </div>
 
       <div class="field span2">
-        <%= f.label :category %>
+        <%= f.label :category, style: 'display: inline' %> <%=link_to "(Add new)", new_category_path %>
         <% categories_array = Category.all.map { |x| [x.name, x.id] }%>
         <%= f.select :category_id, options_for_select(categories_array), {}, class: 'wide-input' %>
       </div>

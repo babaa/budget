@@ -42,6 +42,7 @@ h1, h3 {
 
 .wide-input {
 	width: 130px !important;
+	margin-top: 6px;
 }
 
 .to-bottom {
