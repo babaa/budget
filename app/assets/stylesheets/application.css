@@ -39,3 +39,12 @@ h1, h3 {
 .adding-form select:last-child {
 	width: 50px;
 }
+
+.wide-input {
+	width: 130px !important;
+}
+
+.to-bottom {
+	bottom: 0px;
+	margin-top: 27px;
+}

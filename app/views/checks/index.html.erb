@@ -41,4 +41,4 @@
   <% end %>
 </table>
 
-Kokku:  
+Kokku: <%= params[:date] ? @checks.sum('sum') : Check.sum('sum') %>
