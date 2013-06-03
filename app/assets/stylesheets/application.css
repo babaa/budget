@@ -19,8 +19,8 @@ body {
 h1, h3 {
 	padding: 10px;
 }
- .adding-form {
- 	padding: 10px;
+ .padded {
+ 	padding: 0 10px 0 10px;
  }
 
 .content {
@@ -45,7 +45,10 @@ h1, h3 {
 	margin-top: 6px;
 }
 
-.to-bottom {
-	bottom: 0px;
-	margin-top: 27px;
+.my-date select {
+	width: 70px !important;
+}
+
+input[name=commit] {
+	margin: 10px 0 10px 0;
 }

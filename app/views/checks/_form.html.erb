@@ -14,34 +14,31 @@
 
     
 
-    <div class="adding-form row">
-
-      <div class="field span3">
-        <%= f.label :time %>
-        <%= f.date_select :time %>
-      </div>
+    <div class="padded row">
 
       <div class="field span1">
         <%= f.label :sum %>
-        <%= f.text_field :sum %>
+        <%= f.text_field :sum, style: 'width: 40px'%>
       </div>
 
       <div class="field span2">
-        <%= f.label :category, style: 'display: inline' %> <%=link_to "(Add new)", new_category_path %>
+        <%= f.label :category, @category, style: 'display: inline' %> <%=link_to "(Add new)", new_category_path %>
         <% categories_array = Category.all.map { |x| [x.name, x.id] }%>
         <%= f.select :category_id, options_for_select(categories_array), {}, class: 'wide-input' %>
       </div>
 
-      <div class="field span3">
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-      </div>
-  
-      <div class="actions span1 relative">
-<!--         <%= f.label "Do it"%>
- -->        <%= f.submit 'Create check', class: 'to-bottom' %>
-      </div>
+    </div>
 
+    <div class="my-date padded">
+      <%= f.label :time %>
+      <%= f.date_select :time, order: [:day, :month, :year] %>
+    </div>
+
+    <div class="padded">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <br/>
+      <%= f.submit 'Create check'%>
     </div>
     
 
